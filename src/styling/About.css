@@ -1,0 +1,37 @@
+.about_sub {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+.about_p {
+}
+
+.about_img {
+  width: 100%;
+}
+
+.about_cont {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 4rem 4rem 4rem;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 5%;
+}
+
+.elements {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.elements img {
+  height: auto;
+  width: 30%;
+}
+
+.product {
+  padding: 3rem !important;
+  width: 40%;
+}

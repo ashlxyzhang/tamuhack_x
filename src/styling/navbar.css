@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 16px 16px 8px;
+  background-color: #d5c6e0;
+  gap: 8px;
+  padding-left: 3%;
+  padding-right: 3%;
+  z-index: 10;
+}
+
+.logo {
+  height: 40px;
+}
+
+.right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.group-links {
+  display: flex;
+  gap: 2rem;
+  margin: 0rem 2rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.connect {
+  margin: 0;
+}

@@ -1,0 +1,142 @@
+/* h2 {
+    padding-bottom: 18px;
+} */
+
+.resource-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #aaa1c8;
+  padding: 60px;
+  padding-top: 0px;
+}
+
+.resource-title {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.definition-subtext {
+  font-size: 12px;
+}
+
+.definition-subtext a {
+  font-weight: bolder;
+  transition: transform 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.definition-subtext a:hover {
+  color: #ff6600; /* Change link color on hover */
+  transform: scale(1.1); /* Scale the link on hover for a "pop" effect */
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+.tooltip:hover {
+  font-weight: bold; /* Set the font-weight for the hovered state */
+}
+
+.tooltip::after {
+  content: attr(data-definition);
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px; /* Adjust padding for your preferred size */
+  border-radius: 5px;
+  display: none;
+  z-index: 1;
+  width: 300px; /* Set the desired width */
+}
+
+.tooltip.right::after {
+  left: auto;
+  right: calc(100% + 5px);
+  transform: translateX(0);
+}
+
+.tooltip.left::after {
+  left: calc(100% + 5px);
+  right: auto;
+  transform: translateX(-100%);
+}
+
+.tooltip:hover::after {
+  display: block;
+  width: 200px;
+}
+
+/* Adjust positioning when word is on the left side of the screen */
+.tooltip.left:hover::after {
+  left: calc(100% + 5px);
+  right: auto;
+  transform: translateX(-100%);
+}
+
+/* Adjust positioning when word is on the right side of the screen */
+.tooltip.right:hover::after {
+  left: auto;
+  right: calc(100% + 5px);
+  transform: translateX(0);
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  /* grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); */
+  gap: 20px;
+  padding: 120px;
+  padding-top: 0px;
+  background-color: #aaa1c8;
+  padding-bottom: 0px;
+}
+
+.card1 {
+  background-color: #d5c6e0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 500px;
+  flex-grow: 1;
+  min-height: 0;
+
+  /* display: flex;
+    flex-direction: row; */
+}
+
+/* .content{
+    display: flex;
+} */
+
+.card1:hover {
+  background-color: #f0f0f0;
+}
+
+.card1 a {
+  text-decoration: none;
+  color: #333;
+  /* display: flex;
+    flex-direction: column; */
+}
+
+.card1 h2 {
+  margin: 0;
+}
+
+/* .image-definition { 
+    width: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+} */
+
+/* @media only screen and (max-width:800px){
+    .content{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+} */

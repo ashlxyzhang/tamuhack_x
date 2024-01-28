@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 
 const configuration = new Configuration({
@@ -33,10 +34,10 @@ app.post("/create_link_token", async function (request, response) {
   const plaidRequest = {
     user: {
       // This should correspond to a unique id for the current user.
-      client_user_id: 'user',
+      client_user_id: 'ashley',
     },
-    client_name: 'FINtellect',
-    products: ['auth'],
+    client_name: 'Fintelligent',
+    products: ['auth', 'liabilities', 'transactions'],
     language: 'en',
     redirect_uri: 'http://localhost:5173/',
     country_codes: ['US'],
@@ -50,19 +51,44 @@ app.post("/create_link_token", async function (request, response) {
   }
 });
 
+app.post("/auth", async function (request, response) {
+  try {
+    const access_token = request.body.access_token;
+    const plaidRequest = {
+      access_token: access_token,
+    };
+    const plaidResponse = await plaidClient.authGet(plaidRequest);
+    response.json(plaidResponse.data);
+  } catch (error) {
+    response.status(500).send("failure");
+  }
+});
+
+app.post("/liabilities", async function (request, response) {
+  try {
+    const access_token = request.body.access_token;
+    const plaidRequest = {
+      access_token: access_token,
+    };
+    console.log(access_token);
+    const plaidResponse = await plaidClient.liabilitiesGet(plaidRequest);
+    console.log(plaidResponse.data);
+    response.json(plaidResponse.data.liabilities);
+  } catch (error) {
+    response.status(500).send('failure');
+  }
+})
+
 app.post('/exchange_public_token', async function (
   request,
   response,
   next,
 ) {
   const publicToken = request.body.public_token;
-  console.log(publicToken);
   try {
-    console.log("inside");
     const plaidResponse = await plaidClient.itemPublicTokenExchange({
       public_token: publicToken,
     });
-    console.log(plaidResponse.data);
 
     // These values should be saved to a persistent database and
     // associated with the currently signed-in user

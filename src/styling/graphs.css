@@ -1,0 +1,29 @@
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+
+.graphs {
+  display: flex;
+}
+
+.plot1,
+.plot2 {
+  width: 600px;
+}
+
+.graph-subheading {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .graphs {
+    display: flex;
+    flex-direction: column;
+  }
+}
