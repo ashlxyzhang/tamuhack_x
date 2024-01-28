@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    font-family: inter;
+    justify-content: space-between;
+    padding: 16px 16px 16px 8px;
+    background-color: #F5E6E8;
+    gap: 8px;
+
+}
+
+.logo {
+    height: 40px;
+}
+
+.right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.group-links {
+    display: flex;
+    gap: 16px;
+    font-weight: 300;
+}
+
+.connect {
+    margin: 0;
+}

@@ -1,4 +1,5 @@
-import express, { json } from "express";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import express from "express";
 import cors from 'cors';
 import bodyParser from "body-parser";
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
@@ -10,8 +11,10 @@ const configuration = new Configuration({
   basePath: PlaidEnvironments.sandbox,
   baseOptions: {
     headers: {
-      'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
-      'PLAID-SECRET': process.env.PLAID_SANDBOX_SECRET,
+      // 'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
+      // 'PLAID-SECRET': process.env.PLAID_SANDBOX_SECRET,
+      'PLAID-CLIENT-ID': '65b552d37bc63d001b9263c2',
+      'PLAID-SECRET': 'db454862993765600fce909da26e52',
     },
   },
 });
@@ -25,7 +28,7 @@ const PORT = 8000;
 
 app.post("/hello", (req, res) => {
   // res.json({message: "hello world"});
-  res.json({message: "hello " + req.body.name});
+  res.json({ message: "hello " + req.body.name });
 });
 
 app.post("/create_link_token", async function (request, response) {
@@ -53,7 +56,6 @@ app.post("/create_link_token", async function (request, response) {
 app.post('/exchange_public_token', async function (
   request,
   response,
-  next,
 ) {
   const publicToken = request.body.public_token;
   console.log(publicToken);
