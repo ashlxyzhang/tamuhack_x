@@ -48,7 +48,7 @@ const Connect = () => {
 
   const { open, ready } = usePlaidLink({
     token: linkToken,
-    onSuccess: (public_token, metadata) => {
+    onSuccess: (public_token) => {
       setPublicToken(public_token);
       // send public_token to server
     },

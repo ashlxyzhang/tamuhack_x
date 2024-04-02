@@ -1,9 +1,9 @@
-import express, { json } from "express";
+import express from "express";
 import cors from 'cors';
 import bodyParser from "body-parser";
 import { Configuration, PlaidApi, PlaidEnvironments } from 'plaid';
 import dotenv from 'dotenv';
-
+import functions from "firebase-functions";
 
 dotenv.config();
 
@@ -21,8 +21,6 @@ const plaidClient = new PlaidApi(configuration);
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-const PORT = 8000;
 
 app.post("/hello", (req, res) => {
   // res.json({message: "hello world"});
@@ -70,9 +68,7 @@ app.post("/liabilities", async function (request, response) {
     const plaidRequest = {
       access_token: access_token,
     };
-    console.log(access_token);
     const plaidResponse = await plaidClient.liabilitiesGet(plaidRequest);
-    console.log(plaidResponse.data);
     response.json(plaidResponse.data.liabilities);
   } catch (error) {
     response.status(500).send('failure');
@@ -102,6 +98,4 @@ app.post('/exchange_public_token', async function (
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
-});
+export const api = functions.https.onRequest(app)
