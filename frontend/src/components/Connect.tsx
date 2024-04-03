@@ -5,7 +5,7 @@ import Accounts from "./Accounts";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://us-central1-ashs-wrld.cloudfunctions.net/api";
 
 interface PlaidAuthProps {
   publicToken: string;

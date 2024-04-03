@@ -37,7 +37,7 @@ app.post("/create_link_token", async function (request, response) {
     client_name: 'Fintelligent',
     products: ['auth', 'liabilities', 'transactions'],
     language: 'en',
-    redirect_uri: 'http://localhost:5173/',
+    redirect_uri: 'https://fintelligent.ashs.world/',
     country_codes: ['US'],
   };
   try {
@@ -45,7 +45,7 @@ app.post("/create_link_token", async function (request, response) {
     response.json(createTokenResponse.data);
   } catch (error) {
     // handle error
-    response.status(500).send("failure");
+    response.status(500).send(error);
   }
 });
 
