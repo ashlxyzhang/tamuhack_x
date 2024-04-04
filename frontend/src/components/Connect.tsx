@@ -5,7 +5,8 @@ import Accounts from "./Accounts";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-axios.defaults.baseURL = "https://us-central1-ashs-wrld.cloudfunctions.net/api";
+axios.defaults.baseURL =
+  "https://us-central1-ashs-wrld.cloudfunctions.net/fintelligent_api";
 
 interface PlaidAuthProps {
   publicToken: string;

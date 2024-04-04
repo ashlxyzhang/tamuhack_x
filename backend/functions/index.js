@@ -98,4 +98,4 @@ app.post('/exchange_public_token', async function (
   }
 });
 
-export const api = functions.https.onRequest(app)
+export const fintelligent_api = functions.https.onRequest(app)
